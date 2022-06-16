@@ -1,22 +1,33 @@
-import React from 'react';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import * as React from 'react';
+import {
+    StyleProp,
+    ViewStyle,
+    KeyboardAvoidingView,
+    TouchableWithoutFeedback,
+    Keyboard,
+} from 'react-native';
 
 type KeyboardAwareViewProps = {
+    style?: StyleProp<ViewStyle>;
     children?: React.ReactNode;
 };
 
-const KeyboardAwareView = ({children, ...rest}:KeyboardAwareViewProps) => {
-    
+const KeyboardAwareView = ({ style, children, ...rest }: KeyboardAwareViewProps) => {
     return (
-        <KeyboardAwareScrollView
-        keyboardShouldPersistTaps="always"
-        showsVerticalScrollIndicator={false}
-        >           
-            {
-                children && children
-            }
-        </KeyboardAwareScrollView>
+        <TouchableWithoutFeedback
+            onPress={Keyboard.dismiss}
+        >
+            <KeyboardAvoidingView
+                style={[style, { marginBottom: 30 }]}
+                behavior="padding"
+                keyboardVerticalOffset={100}
+            >
+                {
+                    children && children
+                }
+            </KeyboardAvoidingView>
+        </TouchableWithoutFeedback>
     )
 }
 
-export default KeyboardAwareView;
+export { KeyboardAwareView };

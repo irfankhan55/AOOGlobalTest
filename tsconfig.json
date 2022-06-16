@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
+      "outDir": "./dist/",
+      "sourceMap": true,
       "allowJs": true,
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "isolatedModules": true,
-      "jsx": "react-native",
-      "lib": ["es7"],
+      "jsx": "react",
       "module": "commonjs",
       "moduleResolution": "node",
       "noEmit": true,
@@ -29,9 +30,11 @@
       },  
       "incremental": true,
       "tsBuildInfoFile": ".buildcache/.tsbuildinfo",
-      "types": ["jest"],
-      "target": "esnext",
+      "types": ["jest", "node"],
+      "typeRoots": [ "../node_modules/@types" ],
+      "target": "es2017",
     },
+    "include": ["./src/**/*", "./app/**/*"],
     "exclude": [
       "node_modules",
       "android",
@@ -41,7 +44,7 @@
       "babel.config.js",
       "jest.config.ts",
       "metro.config.js",
-      "index.js",
+      "index.ts",
       "src/scripts/confetti.js",
       ".eslintrc.js"
     ]

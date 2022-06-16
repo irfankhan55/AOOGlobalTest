@@ -1,4 +1,11 @@
 /**
+ * Setup User
+ */
+ export const SET_USER_EMAIL = 'SET_USER_EMAIL';
+ export const SET_USER_COUNTRY = 'SET_USER_COUNTRY';
+ export const SET_USER_STATE = 'SET_USER_STATE';
+
+/**
  * Login
  */
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';

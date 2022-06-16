@@ -1,7 +1,11 @@
 {
-  "name": "AOOGlobalTest",
+  "name": "aaoglobaltest",
   "version": "0.0.1",
   "private": true,
+  "source": "src/index",
+  "files": [
+    "!**/__tests__"
+  ],
   "rnpm": {
     "assets": [
       "assets/fonts"
@@ -16,7 +20,8 @@
     "start": "react-native start",
     "reset-cache": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* &&  rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && yarn cache clean --force &&  yarn install && yarn start -- --reset-cache",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build-icons": "node ./scripts/icon-images.js"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.6",
@@ -25,20 +30,23 @@
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.2",
     "@reduxjs/toolkit": "^1.8.0",
-    "@types/react-redux": "^7.1.23",
+    "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "react": "17.0.2",
-    "react-native": "0.68.2",
+    "react-native": "0.68.0",
+    "react-native-country-picker-modal": "^2.0.0",
     "react-native-fast-image": "^8.5.11",
     "react-native-gesture-handler": "^2.3.2",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-loading-spinner-overlay": "^3.0.0",
+    "react-native-localization": "^2.3.1",
+    "react-native-paper": "^4.12.1",
     "react-native-reanimated": "2.2.4",
     "react-native-safe-area-context": "^4.2.4",
     "react-native-screens": "^3.13.1",
     "react-native-splash-screen": "^3.3.0",
-    "react-native-vector-icons": "^9.1.0",
+    "react-native-vector-icons": "^9.0.0",
     "react-redux": "^7.2.8",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0"
@@ -47,8 +55,13 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@types/jest": "^26.0.23",
-    "@types/react-native": "^0.67.3",
+    "@types/node": "^17.0.40",
+    "@types/react": "^16.9.23",
+    "@types/react-native": "^0.61.20",
+    "@types/react-native-modal-dropdown": "^0.7.1",
+    "@types/react-native-snackbar-component": "^1.1.1",
     "@types/react-native-vector-icons": "^6.4.10",
+    "@types/react-redux": "^7.1.20",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.17.0",
@@ -69,8 +82,5 @@
   },
   "jest": {
     "preset": "react-native"
-  },
-  "resolutions": {
-    "@types/react": "^17"
   }
 }

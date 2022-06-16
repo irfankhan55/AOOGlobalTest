@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { TextInput } from 'react-native';
+import { TextInput, View, Text, StyleProp, TextStyle } from 'react-native';
+import colors from '../../../res/colors';
 import styles from './styles';
 
 type TextFieldProps = {
+    titleStyle?:StyleProp<TextStyle>;
+    title: string;
     style?: {};
     value: string;
     onChangeText: (text: string) => void;
@@ -11,7 +14,9 @@ type TextFieldProps = {
     returnKeyType?: any
 };
 
-const TextField = ({
+const PrimaryTextField = ({
+    titleStyle,
+    title,
     style,
     value,
     onChangeText,
@@ -22,15 +27,19 @@ const TextField = ({
 }:TextFieldProps) => {
 
     return (
+        <View style={{width:'100%',flexDirection:'column'}}>
+            <Text style={[styles.titleStyle, titleStyle]}>{title}</Text>
         <TextInput
             value={value}
-            style={[styles.testInputStyle, style]}
+            style={[styles.inputStyle, style]}
             onChangeText={(text) => onChangeText(text)}
             placeholder={placeholder}
+            placeholderTextColor={colors.TEXT_PRIMARY_BLACK_70}
             editable={editable}
             returnKeyType={returnKeyType ? returnKeyType :"default"}
         />
+        </View>
     )
 }
 
-export  { TextField } ;
+export  { PrimaryTextField } ;

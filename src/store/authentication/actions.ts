@@ -1,4 +1,4 @@
-import AsyncStorageUtils from '../../utility/AsyncStorageUtils';
+import AsyncStorageUtils from '../../utilities/AsyncStorageUtils';
 import {
   LOGIN_REQUEST,
   LOGIN_RESPONSE,
@@ -6,15 +6,35 @@ import {
   LOGOUT_ERROR,
   LOGOUT_REQUEST,
   LOGOUT_RESPONSE,
-  CLEAR_APP_DATA
+  CLEAR_APP_DATA,
+  SET_USER_COUNTRY,
+  SET_USER_EMAIL,
+  SET_USER_STATE
 } from './constants';
-import { synchronization } from '../actions';
-import { UIUserViewModel } from '../../models';
-import { resetRealm } from '../../database';
-
+import { UserViewModel } from '../../models';
+import { Country } from '../../components/molecules/country-picker/types' 
 import { LoginAction, LogoutAction } from './types';
-import AzureAuthUtils from '../../azure-auth-utils';
-import { trackException } from '../../app-insights';
+
+const setUserCountry = (country:Country) => async (dispatch: Function, getState: Function) => {
+  dispatch({
+    type: SET_USER_COUNTRY,
+    payload: country
+  });
+}
+
+const setUserEmail = (email:string) => async (dispatch: Function, getState: Function) => {
+  dispatch( {
+    type: SET_USER_EMAIL,
+    payload: email
+  });
+}
+
+const setUserState = (state:string) => async (dispatch: Function, getState: Function) => {
+  dispatch({
+    type: SET_USER_STATE,
+    payload: state
+  });
+}
 
 function loginRequestAction(): LoginAction {
   return {
@@ -23,7 +43,7 @@ function loginRequestAction(): LoginAction {
   };
 }
 
-function loginResponseAction(user: UIUserViewModel): LoginAction {
+function loginResponseAction(user: UserViewModel): LoginAction {
   return {
     type: LOGIN_RESPONSE,
     payload: user
@@ -40,37 +60,11 @@ function loginErrorAction(error: string): LoginAction {
 const login = () => async (dispatch: Function, getState: Function) => {
   dispatch(loginRequestAction());
   try {
-    const azureAuthUtils = new AzureAuthUtils();
-    let user: UIUserViewModel = await azureAuthUtils.login();
-    if (user) {
-      await saveUserInitialsAndClearDataIfDiffUser(user.userInitial, dispatch);
-      await AsyncStorageUtils.setUserAuthToken(user.accessToken);
-      await AsyncStorageUtils.setUserId(user.userId);
-      await AsyncStorageUtils.setIsTimeRegistrationFormOpen(false);
-      dispatch(loginResponseAction(user));
-      dispatch(synchronization(user));
-    } else {
-      throw new Error("User doesn't exist.");
-    }
+    let user: UserViewModel = new UserViewModel(); // Login from APi
+    // await saveUserDataAndClearDataIfDiffUser(user.userInitial, dispatch);
   } catch (error) {
-    console.log(error);
-    trackException(error);
-    let errorMessage = '';
-    if (error) {
-      if (error.error_description) {
-        errorMessage = error.error_description;
-      } else if (error.message) {
-        errorMessage = error.message;
-      } else if (error.name) {
-        errorMessage = error.name;
-      } else if (typeof error === 'string') {
-        errorMessage = error;
-      }
-    } else {
-      errorMessage =
-        'Something went wrong while authenticating user, Please try again';
-    }
-    dispatch(loginErrorAction(errorMessage));
+    console.log("LoginActionError")
+    dispatch(loginErrorAction(error));
   }
 };
 
@@ -103,31 +97,16 @@ function clearAppDataAction() {
 
 const logout = () => async (dispatch: Function, getState: Function) => {
   dispatch(logoutRequestAction());
-  const azureAuthUtils = new AzureAuthUtils();
-  azureAuthUtils
-    .logout()
-    .then(() => {
-      dispatch(logoutResponseAction());
-    })
-    .catch((error) => {
-      dispatch(logoutErrorAction(error));
-    });
+  // Logout from AAO Global API
+  // const aooGlobalApi = new AAOGlobalAPI();
+  // aooGlobalApi
+  //   .logout()
+  //   .then(() => {
+  //     dispatch(logoutResponseAction());
+  //   })
+  //   .catch((error) => {
+  //     dispatch(logoutErrorAction(error));
+  //   });
 };
 
-async function saveUserInitialsAndClearDataIfDiffUser(
-  userInitial: string,
-  dispatch: Function
-) {
-  const previousUser = await AsyncStorageUtils.getUserInitials();
-  if (previousUser && previousUser === userInitial) {
-    console.log('Logged in with same user.');
-  } else {
-    console.log('Logged in with new user.');
-    await resetRealm();
-    await AsyncStorageUtils.clear();
-    dispatch(clearAppDataAction());
-    await AsyncStorageUtils.setUserInitials(userInitial);
-  }
-}
-
-export { login, logout, loginErrorAction, clearAppDataAction };
+export { login, logout, loginErrorAction, clearAppDataAction, setUserCountry, setUserEmail, setUserState };

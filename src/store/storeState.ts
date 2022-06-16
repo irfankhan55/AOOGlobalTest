@@ -4,6 +4,7 @@ UserViewModel
 
 export interface StoreState {
   loginReducer: LoginState;
+  languageReducer: LanguageState;
 }
 
 export interface LoginState {
@@ -16,6 +17,11 @@ export interface LoginState {
   user: UserViewModel;
 }
 
+export interface LanguageState {
+    name: string,
+    value: string
+}
+
 export const initialState: StoreState = {
   loginReducer: {
     refreshingToken: false,
@@ -26,4 +32,5 @@ export const initialState: StoreState = {
     logoutError: null,
     user: null
   },
+  languageReducer : { name: 'English (UK)', value: 'en' }
 };

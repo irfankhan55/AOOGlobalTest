@@ -1,4 +1,7 @@
 import {
+  SET_USER_COUNTRY,
+  SET_USER_EMAIL,
+  SET_USER_STATE,
   LOGIN_REQUEST,
   LOGIN_RESPONSE,
   LOGIN_ERROR,
@@ -7,11 +10,17 @@ import {
   LOGOUT_RESPONSE
 } from './constants';
 
-import { UIUserViewModel } from '../../models';
+import { UserViewModel } from '../../models';
+import { Country } from '../../components/molecules/country-picker/types';
+
+export interface UserSetupAction {
+  type: typeof SET_USER_COUNTRY | typeof SET_USER_EMAIL | typeof SET_USER_STATE;
+  payload: String | Country;
+}
 
 export interface LoginAction {
   type: typeof LOGIN_REQUEST | typeof LOGIN_RESPONSE | typeof LOGIN_ERROR;
-  payload: string | UIUserViewModel;
+  payload: string | UserViewModel;
 }
 
 export interface LogoutAction {
@@ -19,4 +28,4 @@ export interface LogoutAction {
   payload: string;
 }
 
-export type AuthenticationActionTypes = LoginAction | LogoutAction;
+export type AuthenticationActionTypes = LoginAction | LogoutAction | UserSetupAction;
