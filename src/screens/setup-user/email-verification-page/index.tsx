@@ -23,8 +23,7 @@ const EmailVerificationPage = () => {
               disabled={false}
               title={Strings.demoAccount}
               onPress={() => {
-                // dispatch(login());
-                // navigation.navigate(Routes.SELECT_COUNTRY_SCREEN, {})
+                dispatch(login()); // Dummy login in redux
               }}
               style={styles.continueButton}
             />

@@ -60,7 +60,9 @@ function loginErrorAction(error: string): LoginAction {
 const login = () => async (dispatch: Function, getState: Function) => {
   dispatch(loginRequestAction());
   try {
-    let user: UserViewModel = new UserViewModel(); // Login from APi
+    let user: UserViewModel = new UserViewModel();
+    user.isLoggedIn = true // TODO: Login from APi
+    dispatch(loginResponseAction(user));
     // await saveUserDataAndClearDataIfDiffUser(user.userInitial, dispatch);
   } catch (error) {
     console.log("LoginActionError")
