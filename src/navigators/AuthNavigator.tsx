@@ -2,7 +2,6 @@ import * as React from 'react';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { IconImage, IconSets } from "../components/atoms";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import FinalSubmissionForm from '../screens/setup-user/FinalSubmissionForm';
 import SelectLanguagePage from '../screens/setup-user/select-language-page';
 import EnterEmailPage from '../screens/setup-user/enter-email-page';
 import SelectCountryPage from '../screens/setup-user/select-country-page';
