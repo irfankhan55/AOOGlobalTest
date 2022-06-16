@@ -12,7 +12,7 @@ function setLanguageAction(item :{name:string, value:string}): SetLanguageAction
 }
 
 const setLanguage = (selectedLanguage:{name:string, value:string}) => async (dispatch: Function, getState: Function) => {
-  Strings.setLanguage(selectedLanguage.value)
+  Strings.setLanguage(selectedLanguage.value);
   dispatch(setLanguageAction(selectedLanguage));
 };
 
