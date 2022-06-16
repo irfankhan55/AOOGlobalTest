@@ -1,5 +1,5 @@
 # AAOGlobalTest
-Assessment for aa global
+Assessment for AAO global (Fast Bitcoin Test App)
 
 Please follow the below procedure to run the project. 
 This project is developed and compiled on iOS 15.5
