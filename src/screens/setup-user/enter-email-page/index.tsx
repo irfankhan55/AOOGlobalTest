@@ -8,14 +8,17 @@ import Strings from "../../../res/i18n";
 import { KeyboardAwareView } from "../../../components/atoms/keyboard-aware-view";
 import { setUserEmail } from '../../../store/authentication/actions';
 import { useDispatch } from "react-redux";
+import Utils from '../../../utilities/ValidationUtils'
 
 const EnterEmailPage = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const [email, setEmail] = React.useState<string>('')
   const dispatch = useDispatch();
   const onChangeEmail = (email: string) => {
-    // TODO: Email validation
     setEmail(email);
+  }
+  const isValid = (email: string): boolean => {
+    return Utils.isEmailValid(email)
   }
   React.useLayoutEffect(() => {
     navigation.setOptions({ title: Strings.enterYourEmailAddress })
@@ -30,7 +33,7 @@ const EnterEmailPage = () => {
         onChangeText={(text: string) => onChangeEmail(text)}
       />
       <PrimaryButton
-        disabled={email ? false : true}
+        disabled={isValid(email) ? false : true}
         title={Strings.continue}
         onPress={() => {
           dispatch(setUserEmail(email));
