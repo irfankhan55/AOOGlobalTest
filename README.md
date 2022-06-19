@@ -1,6 +1,14 @@
 # AAOGlobalTest
-Assessment for AAO global (Fast Bitcoin Test App)
+Assessment for AAO global (Fast Bitcoin Test App).
+NOTE: Please keep an eye on repository I'll keep working on the repository and implement the features WIP
 
+# Prerequisite: 
+1) Node Version : v16.15.1
+2) NPM Version : 8.11.0
+3) react-native-cli : 2.0.1
+4) react-native : 0.68.0
+
+# Run Project
 Please follow the below procedure to run the project. 
 This project is developed and compiled on iOS 15.5
 
@@ -11,11 +19,23 @@ This project is developed and compiled on iOS 15.5
 5) pod install
 6) cd ..
 
-# Prerequisite: 
-1) Node Version : v16.15.1
-2) NPM Version : 8.11.0
-3) react-native-cli : 2.0.1
-4) react-native : 0.68.0
+# Following features are developed.
+1) UI by using functional components and hooks.
+2) Localization based on the selected language. (en, da) English and Danish for now. more are coming.
+3) Redux state management.
+4) Redux-persist (language, email, country, and user).
+5) Routers Navigation based on user status isUserLoggedIn ? MainApp : Authentication.
+6) Country picker component
+7) Dashboard and side menu after demo login.
+
+
+# WIP: 
+1) Login / Register through AAO Global API. 
+2) Session Monitoring on launch. 
+3) Session Monitoring any time in App.
+4) Logout if session expired (Clear App data) (Need a login screen for existing users)        
+   * if Signup => user registration and option to change language        
+   * else existing user login
 
 
 ![Simulator Screen Shot - iPhone 13 - 2022-06-17 at 03 30 21](https://user-images.githubusercontent.com/46451157/174149928-1955bc64-a381-4e69-985c-f226e6cf6a6b.png)
