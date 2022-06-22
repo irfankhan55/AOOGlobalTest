@@ -13,11 +13,13 @@ Please follow the below procedure to run the project.
 This project is developed and compiled on iOS 15.5
 
 1) clone repository
-2) cd to AAOGlobalTest
-3) npm install
-4) cd ios
-5) pod install
-6) cd ..
+2) Please delete the yarn.lock and package-lock.json before running
+3) cd to AAOGlobalTest
+4) npm install
+5) cd ios
+6) pod install
+7) cd ..
+8) npm run ios-dev
 
 # Following features are developed.
 1) UI by using functional components and hooks.
