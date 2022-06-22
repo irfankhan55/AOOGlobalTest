@@ -1,4 +1,5 @@
-import React, { ReactElement, useRef, useState, useLayoutEffect } from 'react';
+import * as React from 'react';
+import { ReactElement, useRef, useState, useLayoutEffect } from 'react';
 import {
   FlatList,
   Text,
@@ -16,11 +17,11 @@ type dataItem = {
   name: string; value: string
 }
 interface Props {
-  defaultSelected: dataItem
-  label: string;
-  data: dataItem[];
-  onSelect: (item: { name: string; value: string }) => void;
-  children: React.ReactNode;
+  defaultSelected?: dataItem
+  label?: string;
+  data?: dataItem[];
+  onSelect?: (item: { name: string; value: string }) => void;
+  children?: React.ReactNode;
 }
 
 const Dropdown = (props: Props) => {

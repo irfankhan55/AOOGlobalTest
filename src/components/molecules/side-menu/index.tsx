@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View, TouchableOpacity} from 'react-native';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import styles from './styles';
 import { IconImage, IconSets } from '../../atoms';

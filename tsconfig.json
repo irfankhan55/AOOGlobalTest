@@ -44,7 +44,7 @@
       "babel.config.js",
       "jest.config.ts",
       "metro.config.js",
-      "index.ts",
+      "index.js",
       "src/scripts/confetti.js",
       ".eslintrc.js"
     ]

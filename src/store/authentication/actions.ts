@@ -65,7 +65,6 @@ const login = () => async (dispatch: Function, getState: Function) => {
     dispatch(loginResponseAction(user));
     // await saveUserDataAndClearDataIfDiffUser(user.userInitial, dispatch);
   } catch (error) {
-    console.log("LoginActionError")
     dispatch(loginErrorAction(error));
   }
 };

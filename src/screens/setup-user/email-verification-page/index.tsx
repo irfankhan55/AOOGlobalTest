@@ -12,7 +12,7 @@ import { View } from "react-native";
 const EmailVerificationPage = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const dispatch = useDispatch();
-
+  
   return (
   
         <View style={styles.container} >

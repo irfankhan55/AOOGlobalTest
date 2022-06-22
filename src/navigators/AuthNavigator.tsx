@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from 'react-native';
 import { IconImage, IconSets } from "../components/atoms";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SelectLanguagePage from '../screens/setup-user/select-language-page';
@@ -57,6 +57,7 @@ const AuthNavigator = () => {
       />
     <Stack.Screen name="EmailVerificationPage" component={EmailVerificationPage}
         options={{
+          gestureEnabled: false,
           title: Strings.verifiedYourEmail,
           headerStyle: styles.headerStyle,
           headerLeft: headerLeft,
