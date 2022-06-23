@@ -16,15 +16,15 @@ import colors from '../../../res/colors';
 type dataItem = {
   name: string; value: string
 }
-interface Props {
-  defaultSelected?: dataItem
-  placeholder?: string;
-  data?: dataItem[];
-  onSelect?: (item: { name: string; value: string }) => void;
+interface DropdownProps {
+  defaultSelected: dataItem
+  placeholder: string;
+  data: dataItem[];
+  onSelect: (item: { name: string; value: string }) => void;
   children?: React.ReactNode;
 }
 
-const Dropdown = (props: Props) => {
+const Dropdown = (props: DropdownProps, {...rest}) => {
   const DropdownButton = useRef(undefined);
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(props.defaultSelected || null);
@@ -43,7 +43,7 @@ const Dropdown = (props: Props) => {
 
   const IconRotationAngle = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '180deg'],
+    outputRange: ["0deg", "180deg"]
   });
 
   const toggleDropdown = (): void => {
@@ -51,7 +51,7 @@ const Dropdown = (props: Props) => {
   };
 
   const openDropdown = (): void => {
-    DropdownButton.current.measure((_fx: number, _fy: number, _w: number, h: number, _px: number, py: number) => {
+    DropdownButton.current.measure((fx: number, fy: number, w: number, h: number, px: number, py: number) => {
       setDropdownTop(py + h);
       setVisible(true);
     });
@@ -93,12 +93,13 @@ const Dropdown = (props: Props) => {
       ref={DropdownButton}
       style={styles.button}
       onPress={toggleDropdown}
+      {...rest}
     >
       {visible && renderDropdown()}
       <Text style={styles.buttonText}>
         {(selected && selected.name) || props.placeholder}
       </Text>
-      <Animated.View style={[styles.icon, { transform: [{ rotate: IconRotationAngle }] }]}>
+      <Animated.View style={[styles.icon, {transform: [{ rotate: IconRotationAngle }]}]}>
         <Icon name="chevron-down" size={20} color={colors.AAO_GRAY_TEXT}></Icon>
       </Animated.View>
 

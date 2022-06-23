@@ -32,7 +32,7 @@ const SelectLanguagePage = () => {
             <Text style={styles.titleText}>{Strings.selectYourLanguage}</Text>
             <Dropdown
                 defaultSelected={defaultLanguageFromStore}
-                label={Strings.selectYourLanguage}
+                placeholder={Strings.selectYourLanguage}
                 data={[{ name: 'English (UK)', value: 'en' }, // TODO: Read from json file
                 { name: 'English (UK)', value: 'en' },
                 { name: 'French ', value: 'fr' },
