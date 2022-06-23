@@ -18,7 +18,7 @@ type dataItem = {
 }
 interface Props {
   defaultSelected?: dataItem
-  label?: string;
+  placeholder?: string;
   data?: dataItem[];
   onSelect?: (item: { name: string; value: string }) => void;
   children?: React.ReactNode;
@@ -96,7 +96,7 @@ const Dropdown = (props: Props) => {
     >
       {visible && renderDropdown()}
       <Text style={styles.buttonText}>
-        {(selected && selected.name) || props.label}
+        {(selected && selected.name) || props.placeholder}
       </Text>
       <Animated.View style={[styles.icon, { transform: [{ rotate: IconRotationAngle }] }]}>
         <Icon name="chevron-down" size={20} color={colors.AAO_GRAY_TEXT}></Icon>
