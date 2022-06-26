@@ -20,10 +20,10 @@ const MenuItem = ({ isSelected, menuIcon, onPress }: MenuItemProps) => {
     >
       
         <IconImage
-          iconSet={IconSets.MATERIAL}
+          iconSet={menuIcon.type}
           size={50}
           color={'green'}
-          name={'check'}
+          name={menuIcon.name}
         />
      
     </TouchableOpacity>
@@ -35,17 +35,13 @@ type MenuIconsMap = {
 };
 
 const menuIconsMap: MenuIconsMap = {
-  Dashboard: {
-    name: 'home',
+  HomeScreen: {
+    name: 'logo',
     type: IconSets.LOCAL_ICON
   },
-  Settings: {
-    name: 'settings',
-    type: IconSets.IONICONS
-  },
-  Profile: {
-    name: 'profile',
-    type: IconSets.AAO_PICTOGRAM
+  SettingsScreen: {
+    name: 'check',
+    type: IconSets.MATERIAL
   },
 };
 type SideMenuProps = DrawerContentComponentProps;

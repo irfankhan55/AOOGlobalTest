@@ -1,5 +1,6 @@
 export declare type AuthParamList = {
     HomeScreen: undefined;
+    SettingsScreen: undefined;
     SelectLanguagePage: undefined;
     EnterEmailPage: undefined;
     SelectCountryPage: undefined;

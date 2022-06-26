@@ -6,6 +6,7 @@ import {
 import Routes from './routes';
 import { SideMenu } from '../components/molecules';
 import HomeScreen from '../screens/dashboard/index';
+import SettingsScreen from '../screens/settings/index';
 const Drawer = createDrawerNavigator();
 
 type SideMenuProps = DrawerContentComponentProps;
@@ -15,7 +16,7 @@ const Router = () => {
     <Drawer.Navigator
       initialRouteName={Routes.HOME_SCREEN}
       screenOptions={{
-        drawerType: 'permanent',
+        drawerType:'slide',
         swipeEdgeWidth: 64,
         drawerStyle: {
           width: 64
@@ -26,7 +27,13 @@ const Router = () => {
       <Drawer.Screen
         name={Routes.HOME_SCREEN}
         component={HomeScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
+      />
+
+        <Drawer.Screen
+        name={Routes.SETTINGS_SCREEN}
+        component={SettingsScreen}
+        options={{ headerShown: true }}
       />
     </Drawer.Navigator>
   );

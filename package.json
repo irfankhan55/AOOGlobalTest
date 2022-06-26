@@ -49,6 +49,7 @@
     "react-native-screens": "^3.13.1",
     "react-native-splash-screen": "^3.3.0",
     "react-native-vector-icons": "^9.0.0",
+    "react-native-webview": "^11.22.3",
     "react-redux": "^7.2.8",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0"
@@ -88,7 +89,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": ["./jest/setup.js"],
+    "setupFilesAfterEnv": [
+      "./jest/setup.js"
+    ],
     "collectCoverage": true,
     "moduleDirectories": [
       "node_modules",
