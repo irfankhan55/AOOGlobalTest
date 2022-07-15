@@ -11,6 +11,7 @@ import { Dropdown } from "../../../components/molecules/drop-down";
 import Strings from "../../../res/i18n";
 import styles from "./styles";
 import { setLanguage } from '../../../store/app-settings/actions';
+// import { languageName } from '../../../store/app-settings/selectors';
 import { StoreState } from "~/store/storeState";
 
 const SelectLanguagePage = () => {
@@ -20,12 +21,12 @@ const SelectLanguagePage = () => {
     const dispatch = useDispatch();
 
     const [selectedLanguage, setSelectedLanguage] = React.useState(defaultLanguageFromStore);
+
     React.useLayoutEffect(() => {
         if (selectedLanguage !==null) {
             setSelectedLanguage(selectedLanguage);
         }
-    },
-        [selectedLanguage]);
+    }, [selectedLanguage]);
     return (
         <View style={styles.container}>
             <IconImage iconStyle={{ marginBottom: 50 }} size={130} name={'logo'} iconSet={IconSets.LOCAL_ICON} />

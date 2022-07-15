@@ -18,6 +18,7 @@ const SelectCountryPage = () => {
   const dispatch = useDispatch();
   const [countryCode, setCountryCode] = React.useState<CountryCode>(defaultCountryFromStore?.cca2)
   const [country, setCountry] = React.useState<Country>(defaultCountryFromStore)
+  
   const onSelect = (country: Country) => {
     setCountryCode(country.cca2)
     setCountry(country)

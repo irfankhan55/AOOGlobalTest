@@ -10,5 +10,5 @@ export const languageName = createSelector(
 
 export const languageCode = createSelector(
   languageSelector,
-  (state: LanguageState) => state
+  (state: LanguageState) => state.value
 );
