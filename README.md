@@ -1,6 +1,5 @@
-# AAOGlobalTest
-Assessment for AAO global (Fast Bitcoin Test App).
-NOTE: Please keep an eye on repository I'll keep working on the repository and implement the features WIP
+# Advanced React Native Starter App : (Typescript, Hooks(), Redux, Redux-persit, Localization, Unit Testing "jest", CustomNavigators, SideMenu )
+
 
 # Prerequisite: 
 1) Node Version : v16.15.1
