@@ -38,6 +38,7 @@ This project is developed and compiled on iOS 15.5
    * if Signup => user registration and option to change language        
    * else existing user login
 
+<img src="https://github.com/favicon.ico](https://user-images.githubusercontent.com/46451157/174149928-1955bc64-a381-4e69-985c-f226e6cf6a6b.png)" width="48">
 
 ![Simulator Screen Shot - iPhone 13 - 2022-06-17 at 03 30 21](https://user-images.githubusercontent.com/46451157/174149928-1955bc64-a381-4e69-985c-f226e6cf6a6b.png)
 ![Simulator Screen Shot - iPhone 13 - 2022-06-17 at 03 30 49](https://user-images.githubusercontent.com/46451157/174149984-ca3c39b3-36c3-4112-8053-0760fec1640c.png)
