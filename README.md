@@ -37,7 +37,7 @@ This project is developed and compiled on iOS 15.5
 
 
 # WIP: 
-1) Login / Register through AAO Global API. 
+1) Login / Register through API. 
 2) Session Monitoring on launch. 
 3) Session Monitoring any time in App.
 4) Logout if session expired (Clear App data) (Need a login screen for existing users)        
