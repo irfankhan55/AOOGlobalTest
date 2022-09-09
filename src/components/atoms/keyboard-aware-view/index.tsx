@@ -5,6 +5,7 @@ import {
     KeyboardAvoidingView,
     TouchableWithoutFeedback,
     Keyboard,
+    Platform
 } from 'react-native';
 
 type KeyboardAwareViewProps = {
@@ -13,14 +14,15 @@ type KeyboardAwareViewProps = {
 };
 
 const KeyboardAwareView = ({ style, children, ...rest }: KeyboardAwareViewProps) => {
+    const keyboardVerticalOffset = Platform.OS === 'ios' ? 100 : 0
     return (
         <TouchableWithoutFeedback
             onPress={Keyboard.dismiss}
         >
             <KeyboardAvoidingView
-                style={[style, { marginBottom: 30 }]}
-                behavior="padding"
-                keyboardVerticalOffset={100}
+                behavior={Platform.OS === "ios" ? "padding" : null}
+                keyboardVerticalOffset={keyboardVerticalOffset}
+                style={[style, { marginBottom: Platform.OS == 'ios' ? 30 : 0}]}
             >
                 {
                     children && children
