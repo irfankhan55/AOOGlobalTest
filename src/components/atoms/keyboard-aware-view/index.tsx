@@ -14,15 +14,17 @@ type KeyboardAwareViewProps = {
 };
 
 const KeyboardAwareView = ({ style, children, ...rest }: KeyboardAwareViewProps) => {
-    const keyboardVerticalOffset = Platform.OS === 'ios' ? 100 : 0
+    const keyboardVerticalOffset = Platform.OS === 'ios' ? 10 : 0
     return (
         <TouchableWithoutFeedback
+            
             onPress={Keyboard.dismiss}
         >
             <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : null}
+                behavior={ Platform.OS === 'ios' ? 'padding' : null}
                 keyboardVerticalOffset={keyboardVerticalOffset}
-                style={[style, { marginBottom: Platform.OS == 'ios' ? 30 : 0}]}
+                style={[style, { height:'100%', justifyContent:'space-between', marginBottom: Platform.OS == 'ios' ? 30 : 0}]}
+                contentContainerStyle={{justifyContent:'space-between'}}
             >
                 {
                     children && children

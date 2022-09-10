@@ -41,6 +41,7 @@ const AuthNavigator = () => {
       <Stack.Screen options={{ headerShown: false }} name="SelectLanguagePage" component={SelectLanguagePage} />
       <Stack.Screen name="EnterEmailPage" component={EnterEmailPage}
         options={{
+          headerShown: false,
           title: Strings.enterYourEmailAddress,
           headerStyle: styles.headerStyle,
           headerLeft: headerLeft,
